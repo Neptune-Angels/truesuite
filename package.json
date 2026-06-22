@@ -1,0 +1,21 @@
+{
+  "name": "truesuite",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TrueSuite — SMB tools by Neptune Angels. Monorepo for TrueQR, TruePage, TrueBook.",
+  "packageManager": "pnpm@11.8.0",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "dev:trueqr": "pnpm --filter trueqr dev",
+    "dev:truepage": "pnpm --filter truepage dev",
+    "dev:truebook": "pnpm --filter truebook dev"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
