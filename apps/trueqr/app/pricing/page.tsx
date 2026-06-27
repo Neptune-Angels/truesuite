@@ -65,11 +65,17 @@ function ProCta({ billing }: { billing: 'monthly' | 'annual' }) {
     // Fire conversion event BEFORE redirect so it lands even if Stripe
     // navigation aborts the page.
     try {
-      window.posthog?.capture('pricing_checkout_clicked', {
+      // Canonical funnel event — /pricing → checkout click.
+      const clickProps = {
         billing,
         authed: !!authed,
         location: 'pricing_page',
-      });
+        source: 'pricing_page_pro_cta',
+        path: typeof window !== 'undefined' ? window.location.pathname : '/pricing',
+      };
+      window.posthog?.capture('pricing_to_checkout_click', clickProps);
+      // Back-compat alias (existing dashboards still query this name).
+      window.posthog?.capture('pricing_checkout_clicked', clickProps);
     } catch {
       // analytics must never break the flow
     }

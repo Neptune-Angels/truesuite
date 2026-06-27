@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Footer from '@/components/Footer';
+import CheckoutLandedTracker from './CheckoutLandedTracker';
 
 export const metadata = {
   title: 'Welcome to TrueQR Pro — You\'re In!',
@@ -16,6 +17,7 @@ const PRO_FEATURES = [
 export default function SuccessPage() {
   return (
     <main className="min-h-screen bg-gray-950 text-white py-16 px-4 flex flex-col items-center justify-center">
+      <CheckoutLandedTracker />
       <div className="max-w-xl w-full text-center">
         {/* Hero */}
         <div className="text-6xl mb-4">🎉</div>
